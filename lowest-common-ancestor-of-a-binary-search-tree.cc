@@ -20,37 +20,18 @@ struct TreeNode {
  */
 class Solution {
 public:
-    bool findPath(TreeNode *root, TreeNode *p, vector<TreeNode *> &path) {
-        if (root == nullptr) {
-            return false;
-        }
-        path.push_back(root);
-        if (root == p) {
-            return true;
-        }
-        if (!findPath(root->left, p, path) &&
-            !findPath(root->right, p, path)) {
-            path.pop_back();
-            return false;
-        } 
-        return true;
-    }
-
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        vector<TreeNode *> vp, vq;
-        findPath(root, p, vp);
-        findPath(root, q, vq);
-        TreeNode *result = root;
-        for (auto i = vp.begin(), j = vq.begin();
-            i != vp.end() - 1 && j != vq.end() - 1;
-            i++, j++) {
-            if (*(i + 1) == *(j + 1)) {
-                result = *(i + 1);
-            } else {
-                break;
-            }
+        int rootValue = root->val;
+        int pValue = p->val;
+        int qValue = q->val;
+        if ((rootValue - pValue) * (rootValue - qValue) <= 0) {
+            return root;
         }
-        return result;
+        if (rootValue > pValue) {
+            return lowestCommonAncestor(root->left, p, q);
+        } else {
+            return lowestCommonAncestor(root->right, p, q);
+        }
     }
 };
 
