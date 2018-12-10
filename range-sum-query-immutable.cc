@@ -30,3 +30,7 @@ private:
     vector<int> fromHead, fromTail;
     int total;
 };
+
+int main() {
+    return 0;
+}
