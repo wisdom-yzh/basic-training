@@ -2,3 +2,4 @@ bin
 test
 test.dSYM
 *.swp
+.ycm_extra_conf.py
