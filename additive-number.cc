@@ -1,6 +1,7 @@
 #include <string>
 #include <iostream>
 #include <cassert>
+#include <algorithm>
 using namespace std;
 
 class Solution {

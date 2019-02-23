@@ -2,6 +2,7 @@
 #include <sstream>
 #include <iostream>
 #include <queue>
+#include <algorithm>
 using namespace std;
 
 /**
@@ -103,7 +104,7 @@ int main() {
         TreeNode* p = stringToTreeNode(line);
         getline(cin, line);
         TreeNode* q = stringToTreeNode(line);
-        
+
         bool ret = Solution().isSameTree(p, q);
 
         string out = boolToString(ret);
