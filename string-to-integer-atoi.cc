@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cassert>
+#include <climits>
 using namespace std;
 
 const int BEFORE_SCAN = 0;
@@ -16,7 +17,7 @@ public:
         bool lessThanZero = false, overflow = false;
 
         for (string::iterator iter = str.begin();
-                iter != str.end() && scanStatus != AFTER_SCAN && !overflow; 
+                iter != str.end() && scanStatus != AFTER_SCAN && !overflow;
                 iter++) {
             char c = *iter;
             if (c >= '0' && c <= '9') {

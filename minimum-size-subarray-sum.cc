@@ -3,6 +3,7 @@
 #include <numeric>
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -67,7 +68,7 @@ int main() {
         int s = stringToInteger(line);
         getline(cin, line);
         vector<int> nums = stringToIntegerVector(line);
-        
+
         int ret = Solution().minSubArrayLen(s, nums);
 
         string out = to_string(ret);

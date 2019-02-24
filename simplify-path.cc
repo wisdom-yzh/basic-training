@@ -3,6 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include <cassert>
+#include <iterator>
 using namespace std;
 
 class Solution {
@@ -73,7 +74,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         string path = stringToString(line);
-        
+
         string ret = Solution().simplifyPath(path);
 
         string out = (ret);

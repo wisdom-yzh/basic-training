@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -9,7 +10,7 @@ public:
     vector<int> twoSum(vector<int>& numbers, int target) {
         int left = 0, right = numbers.size() - 1;
         bool found = false;
-        
+
         while (left < right && !found) {
             auto sum = numbers[left] + numbers[right];
             if (sum == target) {
@@ -80,7 +81,7 @@ int main() {
         vector<int> numbers = stringToIntegerVector(line);
         getline(cin, line);
         int target = stringToInteger(line);
-        
+
         vector<int> ret = Solution().twoSum(numbers, target);
 
         string out = integerVectorToString(ret);
@@ -88,4 +89,3 @@ int main() {
     }
     return 0;
 }
-

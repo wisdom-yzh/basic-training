@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <queue>
+#include <algorithm>
 using namespace std;
 
 struct TreeNode {
@@ -92,7 +93,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         TreeNode* root = stringToTreeNode(line);
-        
+
         int ret = Solution().maxDepth(root);
 
         string out = to_string(ret);

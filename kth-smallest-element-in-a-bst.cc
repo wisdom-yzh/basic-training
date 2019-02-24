@@ -2,6 +2,7 @@
 #include <sstream>
 #include <queue>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 /**
@@ -107,7 +108,7 @@ int main() {
         TreeNode* root = stringToTreeNode(line);
         getline(cin, line);
         int k = stringToInteger(line);
-        
+
         int ret = Solution().kthSmallest(root, k);
 
         string out = to_string(ret);

@@ -3,6 +3,7 @@
 #include <string>
 #include <algorithm>
 #include <map>
+#include <iterator>
 using namespace std;
 
 class Solution {

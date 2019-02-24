@@ -3,6 +3,7 @@
 #include <sstream>
 #include <set>
 #include <iterator>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -62,7 +63,7 @@ int main() {
         int k = stringToInteger(line);
         getline(cin, line);
         int t = stringToInteger(line);
-        
+
         bool ret = Solution().containsNearbyAlmostDuplicate(nums, k, t);
 
         string out = boolToString(ret);

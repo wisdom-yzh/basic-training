@@ -2,6 +2,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 struct ListNode {
@@ -125,7 +126,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         ListNode* head = stringToListNode(line);
-        
+
         Solution().reorderList(head);
 
         string out = listNodeToString(head);

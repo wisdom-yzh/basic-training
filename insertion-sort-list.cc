@@ -2,6 +2,7 @@
 #include <sstream>
 #include <vector>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 struct ListNode {
@@ -109,7 +110,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         ListNode* head = stringToListNode(line);
-        
+
         ListNode* ret = Solution().insertionSortList(head);
 
         string out = listNodeToString(ret);

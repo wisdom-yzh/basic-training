@@ -1,6 +1,8 @@
 #include <vector>
 #include <iostream>
 #include <sstream>
+#include <iostream>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -53,7 +55,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         vector<int> nums = stringToIntegerVector(line);
-        
+
         int ret = Solution().findPeakElement(nums);
 
         string out = to_string(ret);

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -70,7 +71,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         vector<int> digits = stringToIntegerVector(line);
-        
+
         vector<int> ret = Solution().plusOne(digits);
 
         string out = integerVectorToString(ret);

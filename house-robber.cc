@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -60,7 +61,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         vector<int> nums = stringToIntegerVector(line);
-        
+
         int ret = Solution().rob(nums);
 
         string out = to_string(ret);

@@ -2,6 +2,8 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <climits>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -49,7 +51,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         vector<int> nums = stringToIntegerVector(line);
-        
+
         int ret = Solution().maxProduct(nums);
 
         string out = to_string(ret);

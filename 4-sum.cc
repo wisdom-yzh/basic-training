@@ -2,6 +2,7 @@
 #include <iostream>
 #include <tuple>
 #include <algorithm>
+#include <iterator>
 using namespace std;
 
 class Solution {

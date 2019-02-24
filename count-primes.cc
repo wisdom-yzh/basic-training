@@ -35,7 +35,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         int n = stringToInteger(line);
-        
+
         int ret = Solution().countPrimes(n);
 
         string out = to_string(ret);

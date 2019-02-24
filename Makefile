@@ -8,7 +8,7 @@ BIN:
 	mkdir -p bin
 
 $(PROGS): %: %.cc
-	$(CC) $^ -std=c++11 -o bin/$@
+	$(CC) $^ -std=c++11 -g -o bin/$@
 
 .PHONY: clean
 

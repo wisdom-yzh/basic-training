@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -70,7 +71,7 @@ int main() {
         vector<int> nums = stringToIntegerVector(line);
         getline(cin, line);
         int target = stringToInteger(line);
-        
+
         int ret = Solution().searchInsert(nums, target);
 
         string out = to_string(ret);

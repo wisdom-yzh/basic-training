@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <cmath>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -77,7 +78,7 @@ int main() {
         int a = stringToInteger(line);
         getline(cin, line);
         vector<int> b = stringToIntegerVector(line);
-        
+
         int ret = Solution().superPow(a, b);
 
         string out = to_string(ret);

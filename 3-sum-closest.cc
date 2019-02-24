@@ -4,6 +4,7 @@
 #include <sstream>
 #include <cmath>
 #include <algorithm>
+#include <climits>
 using namespace std;
 
 class Solution {
@@ -12,7 +13,7 @@ public:
         std::sort(nums.begin(), nums.end());
         int result = 0;
         int distance = INT_MAX;
-        
+
         for (auto i = nums.begin(); i != nums.end() - 2 && distance != 0; i++) {
             auto j = i + 1, k = nums.end() - 1;
             while (j < k) {
@@ -74,7 +75,7 @@ int main() {
         vector<int> nums = stringToIntegerVector(line);
         getline(cin, line);
         int target = stringToInteger(line);
-        
+
         int ret = Solution().threeSumClosest(nums, target);
 
         string out = to_string(ret);

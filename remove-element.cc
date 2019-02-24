@@ -2,7 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
-
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -82,7 +82,7 @@ int main() {
         vector<int> nums = stringToIntegerVector(line);
         getline(cin, line);
         int val = stringToInteger(line);
-        
+
         int ret = Solution().removeElement(nums, val);
 
         string out = integerVectorToString(nums, ret);

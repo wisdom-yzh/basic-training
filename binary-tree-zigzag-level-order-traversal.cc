@@ -3,6 +3,7 @@
 #include <queue>
 #include <vector>
 #include <deque>
+#include <algorithm>
 using namespace std;
 
 struct TreeNode {
@@ -147,7 +148,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         TreeNode* root = stringToTreeNode(line);
-        
+
         for (auto &row: Solution().zigzagLevelOrder(root)) {
             cout << integerVectorToString(row) << endl;
         }

@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <set>
 #include <queue>
+#include <cstring>
 using namespace std;
 
 class Solution {
@@ -26,7 +27,7 @@ public:
                 toplogy.push(i);
             }
         }
-        
+
         while (!toplogy.empty()) {
             int v = toplogy.front();
             result.push_back(v);

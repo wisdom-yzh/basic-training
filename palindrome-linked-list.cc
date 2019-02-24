@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <queue>
+#include <algorithm>
 using namespace std;
 
 /**
@@ -103,7 +104,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         ListNode* head = stringToListNode(line);
-        
+
         bool ret = Solution().isPalindrome(head);
 
         string out = boolToString(ret);

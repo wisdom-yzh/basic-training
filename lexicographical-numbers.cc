@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -43,7 +44,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         int n = stringToInteger(line);
-        
+
         vector<int> ret = Solution().lexicalOrder(n);
 
         string out = integerVectorToString(ret);

@@ -1,6 +1,9 @@
 #include <vector>
 #include <iostream>
 #include <utility>
+#include <numeric>
+#include <algorithm>
+#include <iterator>
 using namespace std;
 
 class Solution {
@@ -45,4 +48,3 @@ int main() {
     std::copy(output.begin(), output.end(), ostream_iterator<int>(cout, ","));
     return 0;
 }
-

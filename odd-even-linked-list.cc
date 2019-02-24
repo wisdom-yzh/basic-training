@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 using namespace std;
 
 struct ListNode {
@@ -9,7 +10,7 @@ struct ListNode {
     ListNode *next;
     ListNode(int x) : val(x), next(NULL) {}
 };
- 
+
 class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {
@@ -103,7 +104,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         ListNode* head = stringToListNode(line);
-        
+
         ListNode* ret = Solution().oddEvenList(head);
 
         string out = listNodeToString(ret);

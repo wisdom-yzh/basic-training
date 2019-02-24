@@ -2,6 +2,7 @@
 #include <sstream>
 #include <vector>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 /**
@@ -26,7 +27,7 @@ public:
             tail = tail->next;
             length++;
         }
-        
+
         tail->next = head;
         k = length - (k % length);
         for (auto i = 0; i < k; i++) {

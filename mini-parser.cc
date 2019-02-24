@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stack>
 #include <string>
+#include <vector>
 using namespace std;
 
 // This is the interface that allows for creating nested lists.

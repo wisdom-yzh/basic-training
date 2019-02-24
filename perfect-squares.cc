@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
+#include <limits>
 using namespace std;
 
 class Solution {
@@ -40,7 +41,7 @@ public:
                 value = std::min(value, recursionNumSquares(n - number) + 1);
             }
         }
-        
+
         tempTable[n] = value;
         return value;
     }
@@ -54,7 +55,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         int n = stringToInteger(line);
-        
+
         int ret = Solution().numSquares(n);
 
         string out = to_string(ret);

@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <cstdlib>
+#include <algorithm>
 using namespace std;
 
 class Solution {

@@ -2,6 +2,8 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <climits>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -28,11 +30,11 @@ public:
             if (coin > amount) {
                 continue;
             } else {
-                int temp = innerCoinChange(coins, amount - coin, dp); 
+                int temp = innerCoinChange(coins, amount - coin, dp);
                 if (temp == -1) {
                     continue;
                 }
-                
+
                 if (count == -1) {
                     count = temp + 1;
                 } else {
@@ -82,7 +84,7 @@ int main() {
         vector<int> coins = stringToIntegerVector(line);
         getline(cin, line);
         int amount = stringToInteger(line);
-        
+
         int ret = Solution().coinChange(coins, amount);
 
         string out = to_string(ret);

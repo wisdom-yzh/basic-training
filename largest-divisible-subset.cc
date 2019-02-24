@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -81,7 +82,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         vector<int> nums = stringToIntegerVector(line);
-        
+
         vector<int> ret = Solution().largestDivisibleSubset(nums);
 
         string out = integerVectorToString(ret);

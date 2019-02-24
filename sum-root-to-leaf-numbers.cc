@@ -2,6 +2,7 @@
 #include <sstream>
 #include <queue>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 struct TreeNode {
@@ -107,7 +108,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         TreeNode* root = stringToTreeNode(line);
-        
+
         int ret = Solution().sumNumbers(root);
 
         string out = to_string(ret);

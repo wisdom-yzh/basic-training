@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
+#include <algorithm>
 using namespace std;
 
 // worst case O(n)
@@ -83,7 +84,7 @@ int main() {
         vector<int> nums = stringToIntegerVector(line);
         getline(cin, line);
         int target = stringToInteger(line);
-        
+
         bool ret = Solution().search(nums, target);
 
         string out = boolToString(ret);

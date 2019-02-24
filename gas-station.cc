@@ -2,6 +2,7 @@
 #include <sstream>
 #include <vector>
 #include <numeric>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -58,7 +59,7 @@ int main() {
         vector<int> gas = stringToIntegerVector(line);
         getline(cin, line);
         vector<int> cost = stringToIntegerVector(line);
-        
+
         int ret = Solution().canCompleteCircuit(gas, cost);
 
         string out = to_string(ret);

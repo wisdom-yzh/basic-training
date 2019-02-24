@@ -1,8 +1,7 @@
-#include <vector>
-#include <queue>
+#include <algorithm>
 #include <iostream>
 #include <sstream>
-#include <algorithm>
+#include <queue>
 using namespace std;
 
 struct TreeNode {
@@ -23,19 +22,29 @@ struct TreeNode {
  */
 class Solution {
 public:
-    void recursion(TreeNode *root, vector<int> &vec) {
-       if (root == nullptr) {
-           return;
-       }
-       vec.push_back(root->val);
-       recursion(root->left, vec);
-       recursion(root->right, vec);
+    int pathSum(TreeNode* root, int sum) {
+        int result = 0;
+        if (root == nullptr) {
+            return result;
+        }
+        result += addUp(root, sum);
+        result += pathSum(root->left, sum);
+        result += pathSum(root->right, sum);
+
+        return result;
     }
 
-    vector<int> preorderTraversal(TreeNode* root) {
-        vector<int> vec;
-        recursion(root, vec);
-        return vec;
+    int addUp(TreeNode* root, int sum) {
+        int result = 0;
+        if (root == nullptr) {
+            return result;
+        }
+        if (sum == root->val) {
+            result++;
+        }
+        result += addUp(root->left, sum - root->val);
+        result += addUp(root->right, sum - root->val);
+        return result;
     }
 };
 
@@ -97,31 +106,20 @@ TreeNode* stringToTreeNode(string input) {
     return root;
 }
 
-string integerVectorToString(vector<int> list, int length = -1) {
-    if (length == -1) {
-        length = list.size();
-    }
-
-    if (length == 0) {
-        return "[]";
-    }
-
-    string result;
-    for(int index = 0; index < length; index++) {
-        int number = list[index];
-        result += to_string(number) + ", ";
-    }
-    return "[" + result.substr(0, result.length() - 2) + "]";
+int stringToInteger(string input) {
+    return stoi(input);
 }
 
 int main() {
     string line;
     while (getline(cin, line)) {
         TreeNode* root = stringToTreeNode(line);
-        
-        vector<int> ret = Solution().preorderTraversal(root);
+        getline(cin, line);
+        int sum = stringToInteger(line);
 
-        string out = integerVectorToString(ret);
+        int ret = Solution().pathSum(root, sum);
+
+        string out = to_string(ret);
         cout << out << endl;
     }
     return 0;

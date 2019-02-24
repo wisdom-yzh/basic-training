@@ -2,6 +2,7 @@
 #include <sstream>
 #include <vector>
 #include <queue>
+#include <algorithm>
 using namespace std;
 
 struct TreeNode {
@@ -119,7 +120,7 @@ int main() {
         vector<int> inorder = stringToIntegerVector(line);
         getline(cin, line);
         vector<int> postorder = stringToIntegerVector(line);
-        
+
         TreeNode* ret = Solution().buildTree(inorder, postorder);
 
         string out = treeNodeToString(ret);

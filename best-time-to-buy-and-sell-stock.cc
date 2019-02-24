@@ -2,6 +2,7 @@
 #include <string>
 #include <sstream>
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -54,7 +55,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         vector<int> prices = stringToIntegerVector(line);
-        
+
         int ret = Solution().maxProfit(prices);
 
         string out = to_string(ret);

@@ -3,6 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include <map>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -78,7 +79,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         vector<int> nums = stringToIntegerVector(line);
-        
+
         vector<int> ret = Solution().singleNumber(nums);
 
         string out = integerVectorToString(ret);

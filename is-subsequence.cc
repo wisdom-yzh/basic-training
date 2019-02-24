@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <cassert>
 using namespace std;
 
 class Solution {
@@ -55,7 +56,7 @@ int main() {
         string s = stringToString(line);
         getline(cin, line);
         string t = stringToString(line);
-        
+
         bool ret = Solution().isSubsequence(s, t);
 
         string out = boolToString(ret);

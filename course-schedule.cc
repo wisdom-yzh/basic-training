@@ -2,6 +2,7 @@
 #include <stack>
 #include <cstdlib>
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 class Solution {
@@ -20,7 +21,7 @@ public:
             graph[p.first][p.second] = true;
             degree[p.second]++;
         }
-        
+
         stack<int> vertexs;
         for (int i = 0; i < SIZE; i++) {
             if (degree[i] == 0) {

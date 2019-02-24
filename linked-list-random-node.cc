@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <ctime>
+#include <stdio.h>
 
 struct ListNode {
     int val;
@@ -19,11 +20,11 @@ class Solution {
 public:
     /** @param head The linked list's head.
         Note that the head is guaranteed to be not null, so it contains at least one node. */
-    Solution(ListNode* head) {
+    Solution(ListNode* head = nullptr) {
         std::srand(std::time(nullptr));
         this->head = head;
     }
-    
+
     /** Returns a random node's value. */
     int getRandom() {
         int index = 2;

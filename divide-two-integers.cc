@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <climits>
 using namespace std;
 
 class Solution {
@@ -45,7 +46,7 @@ int main() {
         int dividend = stringToInteger(line);
         getline(cin, line);
         int divisor = stringToInteger(line);
-        
+
         int ret = Solution().divide(dividend, divisor);
 
         string out = to_string(ret);

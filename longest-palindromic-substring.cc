@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cassert>
+#include <cstring>
 using namespace std;
 
 class Solution {
@@ -33,7 +34,7 @@ public:
                 }
             }
         }
-        
+
 
         return s.substr(begin, maxPalindromeLength);
     }
@@ -69,7 +70,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         string s = stringToString(line);
-        
+
         string ret = Solution().longestPalindrome(s);
 
         string out = (ret);

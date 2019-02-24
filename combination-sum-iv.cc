@@ -2,11 +2,12 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 using namespace std;
 
 class Solution {
 public:
-    
+
     int combinationSum4(vector<int>& nums, int target, vector<int> &table) {
         if (target == 0) {
             return 1;

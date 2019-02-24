@@ -4,6 +4,7 @@
 #include <iomanip>
 #include <vector>
 #include <sstream>
+#include <algorithm>
 using namespace std;
 
 const unsigned long long BASE_NUMBER = 100000000;
@@ -38,7 +39,7 @@ public:
                 arrResult[i + j] %= BASE_NUMBER;
             }
         }
-        
+
         stringstream ss;
         for (auto iter = arrResult.rbegin(); iter != arrResult.rend(); iter++) {
             ss << setfill('0') << setw(BASE_LENGTH) << (*iter);
@@ -84,7 +85,7 @@ int main() {
         string num1 = stringToString(line);
         getline(cin, line);
         string num2 = stringToString(line);
-        
+
         string ret = Solution().multiply(num1, num2);
 
         string out = (ret);

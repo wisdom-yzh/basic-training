@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -87,4 +88,3 @@ int main() {
     });
     return 0;
 }
-

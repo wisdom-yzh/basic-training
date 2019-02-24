@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <cassert>
 using namespace std;
 
 class Solution {
@@ -84,7 +85,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         string s = stringToString(line);
-        
+
         string ret = Solution().decodeString(s);
 
         string out = (ret);

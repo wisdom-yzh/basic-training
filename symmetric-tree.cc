@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <queue>
+#include <algorithm>
 using namespace std;
 
 struct TreeNode {
@@ -108,7 +109,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         TreeNode* root = stringToTreeNode(line);
-        
+
         bool ret = Solution().isSymmetric(root);
 
         string out = boolToString(ret);

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 struct ListNode {
@@ -105,7 +106,7 @@ int main() {
         ListNode* head = stringToListNode(line);
         getline(cin, line);
         int val = stringToInteger(line);
-        
+
         ListNode* ret = Solution().removeElements(head, val);
 
         string out = listNodeToString(ret);

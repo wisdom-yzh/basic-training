@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <unordered_map>
+#include <cassert>
 using namespace std;
 
 class Solution {
@@ -16,7 +17,7 @@ public:
                 iter->second++;
             }
         }
-        
+
         size_t i = 0;
         for (i = 0; i < s.size(); i++) {
             if (numberOfChar[s[i]] < k) {
@@ -70,7 +71,7 @@ int main() {
         string s = stringToString(line);
         getline(cin, line);
         int k = stringToInteger(line);
-        
+
         int ret = Solution().longestSubstring(s, k);
 
         string out = to_string(ret);

@@ -3,6 +3,7 @@
 #include <string>
 #include <sstream>
 #include <numeric>
+#include <algorithm>
 using namespace std;
 
 class Solution {

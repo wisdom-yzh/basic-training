@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 using namespace std;
 
 struct TreeNode {
@@ -94,7 +95,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         vector<int> nums = stringToIntegerVector(line);
-        
+
         TreeNode* ret = Solution().sortedArrayToBST(nums);
 
         string out = treeNodeToString(ret);

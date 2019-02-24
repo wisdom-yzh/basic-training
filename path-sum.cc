@@ -2,6 +2,7 @@
 #include <sstream>
 #include <vector>
 #include <queue>
+#include <algorithm>
 using namespace std;
 
 struct TreeNode {
@@ -109,7 +110,7 @@ int main() {
         TreeNode* root = stringToTreeNode(line);
         getline(cin, line);
         int sum = stringToInteger(line);
-        
+
         bool ret = Solution().hasPathSum(root, sum);
 
         string out = boolToString(ret);

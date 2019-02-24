@@ -2,6 +2,7 @@
 #include <vector>
 #include <sstream>
 #include <set>
+#include <algorithm>
 using namespace std;
 
 class Solution {

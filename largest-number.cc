@@ -2,6 +2,8 @@
 #include <vector>
 #include <iostream>
 #include <sstream>
+#include <algorithm>
+#include <iterator>
 using namespace std;
 
 class Solution {
@@ -61,7 +63,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         vector<int> nums = stringToIntegerVector(line);
-        
+
         string ret = Solution().largestNumber(nums);
 
         string out = (ret);

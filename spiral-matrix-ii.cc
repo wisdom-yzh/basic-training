@@ -1,6 +1,8 @@
 #include <vector>
 #include <iostream>
 #include <utility>
+#include <algorithm>
+#include <iterator>
 using namespace std;
 
 class Solution {

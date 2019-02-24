@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <set>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -55,7 +56,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         vector<int> nums = stringToIntegerVector(line);
-        
+
         bool ret = Solution().containsDuplicate(nums);
 
         string out = boolToString(ret);

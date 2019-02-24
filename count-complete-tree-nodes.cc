@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <queue>
+#include <algorithm>
 using namespace std;
 
 /**
@@ -98,7 +99,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         TreeNode* root = stringToTreeNode(line);
-        
+
         int ret = Solution().countNodes(root);
 
         string out = to_string(ret);

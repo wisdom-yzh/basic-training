@@ -2,6 +2,8 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <climits>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -70,7 +72,7 @@ int main() {
         int n = stringToInteger(line);
         getline(cin, line);
         vector<int> primes = stringToIntegerVector(line);
-        
+
         int ret = Solution().nthSuperUglyNumber(n, primes);
 
         string out = to_string(ret);

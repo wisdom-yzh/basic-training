@@ -3,6 +3,7 @@
 #include <stack>
 #include <vector>
 #include <queue>
+#include <algorithm>
 using namespace std;
 
 struct TreeNode {

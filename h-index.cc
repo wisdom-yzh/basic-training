@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -58,7 +59,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         vector<int> citations = stringToIntegerVector(line);
-        
+
         int ret = Solution().hIndex(citations);
 
         string out = to_string(ret);

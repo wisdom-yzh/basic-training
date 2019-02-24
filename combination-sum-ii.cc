@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iterator>
 using namespace std;
 
 class Solution {
@@ -31,7 +32,7 @@ public:
             this->recursionAddNumber(candidates, nextPosition, target, next, result);
         }
     }
-    
+
     vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
         vector<vector<int>> result;
         if (candidates.empty()) {
@@ -69,6 +70,6 @@ int main() {
         copy(row.begin(), row.end(), std::ostream_iterator<int>(cout, ","));
         cout << endl;
     }
-    
+
     return 0;
 }

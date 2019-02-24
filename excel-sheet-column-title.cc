@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -29,7 +30,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         int n = stringToInteger(line);
-        
+
         string ret = Solution().convertToTitle(n);
 
         string out = (ret);

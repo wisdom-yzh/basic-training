@@ -1,6 +1,8 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <cassert>
 using namespace std;
 
 class Solution {
@@ -33,7 +35,7 @@ public:
             if (ch == '.') {
                 isFile = true;
             }
-            
+
             if (ch == '\n') {
                 // meet '\n'
                 int nextDepth = 0;

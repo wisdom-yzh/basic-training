@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -84,7 +85,7 @@ int main() {
         vector<int> nums2 = stringToIntegerVector(line);
         getline(cin, line);
         int n = stringToInteger(line);
-        
+
         Solution().merge(nums1, m, nums2, n);
 
         string out = integerVectorToString(nums1);

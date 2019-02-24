@@ -1,6 +1,7 @@
 #include <sstream>
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -67,7 +68,7 @@ int main() {
         vector<int> nums = stringToIntegerVector(line);
         getline(cin, line);
         int k = stringToInteger(line);
-        
+
         Solution().rotate(nums, k);
 
         string out = integerVectorToString(nums);

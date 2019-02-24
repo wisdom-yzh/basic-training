@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 /**
@@ -11,7 +12,7 @@ struct Interval {
     Interval() : start(0), end(0) {}
     Interval(int s, int e) : start(s), end(e) {}
 };
- 
+
 class Solution {
 public:
     vector<Interval> merge(vector<Interval>& intervals) {
@@ -23,7 +24,7 @@ public:
         std::sort(intervals.begin(), intervals.end(), [](Interval &a, Interval &b) {
             return a.start < b.start;
         });
-        
+
         result.push_back(intervals[0]);
         for (auto iter = intervals.begin() + 1; iter != intervals.end(); iter++) {
             auto front = result.end() - 1;

@@ -3,6 +3,7 @@
 #include <sstream>
 #include <queue>
 #include <cmath>
+#include <algorithm>
 using namespace std;
 
 struct TreeNode {
@@ -110,7 +111,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         TreeNode* root = stringToTreeNode(line);
-        
+
         bool ret = Solution().isBalanced(root);
 
         string out = boolToString(ret);

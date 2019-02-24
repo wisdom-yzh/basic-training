@@ -1,6 +1,7 @@
 #include <queue>
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 using namespace std;
 
 struct TreeNode {

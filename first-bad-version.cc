@@ -1,5 +1,7 @@
 // Forward declaration of isBadVersion API.
-bool isBadVersion(int version);
+bool isBadVersion(int version) {
+    return true;
+}
 
 class Solution {
 public:
@@ -16,6 +18,7 @@ public:
                 p = mid + 1;
             }
         }
+        return 0;
     }
 };
 

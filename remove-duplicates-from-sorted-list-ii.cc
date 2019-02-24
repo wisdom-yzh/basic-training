@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 struct ListNode {
@@ -48,7 +49,7 @@ public:
                 q = q->next;
             }
         }
-        
+
         ListNode *ret = beforeHead->next;
         delete beforeHead;
         return ret;

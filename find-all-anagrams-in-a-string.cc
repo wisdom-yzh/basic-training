@@ -1,17 +1,33 @@
-#include <string>
 #include <vector>
+#include <string>
 #include <cassert>
-#include <iostream>
-#include <sstream>
-#include <iterator>
 #include <algorithm>
+#include <iostream>
 using namespace std;
 
 class Solution {
 public:
-    string reverseString(string s) {
-        std::reverse(s.begin(), s.end());
-        return s;
+    vector<int> findAnagrams(string s, string p) {
+        vector<int> sv(256, 0), pv(256, 0), result;
+        for (int i = 0; i < p.size(); i++) {
+            sv[s[i]]++;
+            pv[p[i]]++;
+        }
+
+        if (pv == sv) {
+            result.push_back(0);
+        }
+
+        for (int i = p.size(); i < s.size(); i++) {
+            sv[s[i - p.size()]]--;
+            sv[s[i]]++;
+
+            if (sv == pv) {
+                result.push_back(i - p.size() + 1);
+            }
+        }
+
+        return result;
     }
 };
 
@@ -41,14 +57,33 @@ string stringToString(string input) {
     return result;
 }
 
+string integerVectorToString(vector<int> list, int length = -1) {
+    if (length == -1) {
+        length = list.size();
+    }
+
+    if (length == 0) {
+        return "[]";
+    }
+
+    string result;
+    for(int index = 0; index < length; index++) {
+        int number = list[index];
+        result += to_string(number) + ", ";
+    }
+    return "[" + result.substr(0, result.length() - 2) + "]";
+}
+
 int main() {
     string line;
     while (getline(cin, line)) {
         string s = stringToString(line);
+        getline(cin, line);
+        string p = stringToString(line);
 
-        string ret = Solution().reverseString(s);
+        vector<int> ret = Solution().findAnagrams(s, p);
 
-        string out = (ret);
+        string out = integerVectorToString(ret);
         cout << out << endl;
     }
     return 0;

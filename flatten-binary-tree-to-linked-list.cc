@@ -3,6 +3,7 @@
 #include <queue>
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 using namespace std;
 
 struct TreeNode {
@@ -128,7 +129,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         TreeNode* root = stringToTreeNode(line);
-        
+
         Solution().flatten(root);
 
         string out = treeNodeToString(root);
