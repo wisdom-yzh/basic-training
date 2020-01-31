@@ -6,7 +6,7 @@ using namespace std;
 
 class Solution {
 public:
-        int maxAreaOfIsland(vector<vector<int>>& grid) {
+    int maxAreaOfIsland(vector<vector<int>>& grid) {
         const static int delta[4][2] = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
         int maxArea = 0;
         for (int i = 0; i < grid.size(); i++) {

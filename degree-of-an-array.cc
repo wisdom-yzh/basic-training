@@ -1,41 +1,40 @@
+#include <vector>
 #include <iostream>
 #include <sstream>
-#include <vector>
-#include <string>
+#include <array>
 #include <algorithm>
 using namespace std;
 
 class Solution {
 public:
-    int findNumberOfLIS(vector<int>& nums) {
-        if (nums.empty()) {
-            return 0;
-        }
+    int findShortestSubArray(vector<int>& nums) {
+        std::array<int, 50000> left, right, degree;
+        int maxDegree = 0, result = nums.size();
 
-        vector<int> dp(nums.size(), 1), count(nums.size(), 1);
-        int maxLen = 1;
-        for (int i = 1; i < nums.size(); i++) {
-            for (int j = 0; j < i; j++) {
-                if (nums[i] > nums[j]) {
-                    if (dp[j] + 1 > dp[i]) {
-                        dp[i] = dp[j] + 1;
-                        count[i] = count[j];
-                        maxLen = std::max(maxLen, dp[i]);
-                    } else if (dp[j] + 1 == dp[i]) {
-                        count[i] += count[j];
-                    }
+        left.fill(-1);
+        right.fill(-1);
+        degree.fill(0);
+
+        for (int i = 0; i < nums.size(); i++) {
+            int num = nums[i];
+            degree[num]++;
+
+            if (left[num] == -1) {
+                left[num] = i;
+            }
+            right[num] = i;
+
+            if (degree[num] >= maxDegree) {
+                if (degree[num] > maxDegree) {
+                    result = right[num] - left[num] + 1;
+                } else {
+                    result = std::min(result, right[num] - left[num] + 1);
                 }
+                maxDegree = degree[num];
             }
         }
 
-        int maxCount = 0;
-        for (int i = 0; i < dp.size(); i++) {
-            if (maxLen == dp[i]) {
-                maxCount += count[i];
-            }
-        }
-
-        return maxCount;
+        return result;
     }
 };
 
@@ -71,7 +70,7 @@ int main() {
     while (getline(cin, line)) {
         vector<int> nums = stringToIntegerVector(line);
 
-        int ret = Solution().findNumberOfLIS(nums);
+        int ret = Solution().findShortestSubArray(nums);
 
         string out = to_string(ret);
         cout << out << endl;
