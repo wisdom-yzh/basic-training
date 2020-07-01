@@ -13,7 +13,7 @@ public:
         std::map<int, int> maxProbit;
 
         for (int i = 0; i < difficulty.size(); i++) {
-            maxProbit[difficulty[i]] =  profit[i];
+            maxProbit[difficulty[i]] =  std::max(maxProbit[difficulty[i]], profit[i]);
         }
 
         int probit = 0;
