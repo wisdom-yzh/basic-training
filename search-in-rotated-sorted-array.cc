@@ -12,7 +12,7 @@ public:
             return -1;
         }
 
-        int p = 0, q = nums.size() - 1, index = -1;
+        int p = 0, q = nums.size() - 1;
         while (p <= q) {
             int mid = (p + q) >> 1;
             if (nums[mid] == target) {
@@ -42,7 +42,7 @@ public:
 
             }
         }
-        return index;
+        return -1;
     }
 };
 
