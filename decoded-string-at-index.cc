@@ -10,53 +10,26 @@ using namespace std;
 class Solution {
 public:
     string decodeAtIndex(string S, int K) {
-        stack<tuple<string, uint64_t, uint64_t>> str;
+        long size = 0;
+        int N = S.size();
 
-        string s = "";
-        uint64_t num = 0;
-        for (int i = 0; i < S.size(); i++) {
-            if (S[i] >= '0' && S[i] <= '9') {
-                num = 10 * num + (S[i] - '0');
-                if (num > std::numeric_limits<int64_t>::max()) {
-                    num = std::numeric_limits<int64_t>::max();
-                }
-            } else {
-                if (num != 0) {
-                    uint64_t totalNum = str.empty() ? 0 : std::get<2>(str.top());
-                    totalNum = (totalNum + s.size()) * num;
-                    str.push({ move(s), num, totalNum});
-                    s = string { S[i] };
-                    num = 0;
-                } else {
-                    s.push_back(S[i]);
-                }
-            }
+        for (int i = 0; i < N; ++i) {
+            if (isdigit(S[i]))
+                size *= S[i] - '0';
+            else
+                size++;
         }
 
-        if (!s.empty()) {
-            uint64_t totalNum = 0;
-            if (!str.empty()) {
-                totalNum = std::get<2>(str.top());
-            }
-            totalNum = (totalNum + s.size()) * (num == 0 ? 1 : num);
-            str.push({ move(s), num == 0 ? 1 : num, totalNum });
+        for (int i = N-1; i >=0; --i) {
+            K %= size;
+            if (K == 0 && isalpha(S[i]))
+                return (string) "" + S[i];
+
+            if (isdigit(S[i]))
+                size /= S[i] - '0';
+            else
+                size--;
         }
-
-        while (!str.empty()) {
-            int totalNum, num;
-            string s;
-            std::tie(s, num, totalNum) = str.top();
-
-            int segmentLength = totalNum / num;
-            int segmentOffset = (K - 1) % segmentLength;
-            int prevLength = segmentLength - s.size();
-            if (segmentOffset >= prevLength) {
-                return string { s[segmentOffset - prevLength] };
-            }
-            K = segmentOffset;
-            str.pop();
-        }
-
         return "";
     }
 };
