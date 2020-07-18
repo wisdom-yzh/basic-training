@@ -1,63 +1,44 @@
-#include <vector>
-#include <queue>
 #include <iostream>
 #include <sstream>
+#include <queue>
 #include <algorithm>
-#include <stack>
 using namespace std;
 
+/**
+ * Definition for a binary tree node.
+ */
 struct TreeNode {
     int val;
     TreeNode *left;
     TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
 class Solution {
 public:
-    void recursion(TreeNode *root, vector<int> &vec) {
-       if (root == nullptr) {
-           return;
-       }
-       vec.push_back(root->val);
-       recursion(root->left, vec);
-       recursion(root->right, vec);
+    int rangeSumBST(TreeNode* root, int L, int R) {
+        if (root == nullptr) {
+            return 0;
+        }
+        int sum = 0;
+        dfs(root, L, R, sum);
+        return sum;
     }
 
-    vector<int> preorderTraversal(TreeNode* root) {
-        vector<int> vec;
-        recursion(root, vec);
-        return vec;
-    }
-
-    vector<int> preorderTraversalNoRecursion(TreeNode *root) {
-        vector<int> vec;
-        stack<TreeNode *> stk;
-        stk.push(root);
-
-        while (!stk.empty()) {
-            auto top = stk.top();
-            vec.push_back(top->val);
-            stk.pop();
-
-            if (top->right) {
-                stk.push(top->right);
-            }
-            if (top->left) {
-                stk.push(top->left);
-            }
+    void dfs(TreeNode *root, int &L, int &R, int &sum) {
+        if (root->val >= L && root->val <= R) {
+            sum += root->val;
         }
 
-        return vec;
+        if (root->left && root->val >= L) {
+            dfs(root->left, L, R, sum);
+        }
+
+        if (root->right && root->val <= R) {
+            dfs(root->right, L, R, sum);
+        }
     }
 };
 
@@ -119,31 +100,22 @@ TreeNode* stringToTreeNode(string input) {
     return root;
 }
 
-string integerVectorToString(vector<int> list, int length = -1) {
-    if (length == -1) {
-        length = list.size();
-    }
-
-    if (length == 0) {
-        return "[]";
-    }
-
-    string result;
-    for(int index = 0; index < length; index++) {
-        int number = list[index];
-        result += to_string(number) + ", ";
-    }
-    return "[" + result.substr(0, result.length() - 2) + "]";
+int stringToInteger(string input) {
+    return stoi(input);
 }
 
 int main() {
     string line;
     while (getline(cin, line)) {
         TreeNode* root = stringToTreeNode(line);
+        getline(cin, line);
+        int L = stringToInteger(line);
+        getline(cin, line);
+        int R = stringToInteger(line);
 
-        vector<int> ret = Solution().preorderTraversalNoRecursion(root);
+        int ret = Solution().rangeSumBST(root, L, R);
 
-        string out = integerVectorToString(ret);
+        string out = to_string(ret);
         cout << out << endl;
     }
     return 0;
