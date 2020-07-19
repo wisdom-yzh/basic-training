@@ -1,4 +1,5 @@
 #include <vector>
+#include <stack>
 using namespace std;
 
 // Definition for a Node.
@@ -31,6 +32,25 @@ public:
         for (auto &child: root->children) {
             recursionPreorder(arr, child);
         }
+    }
+
+    vector<int> noRecursionPreorder(Node *root) {
+        stack<Node *> stk;
+        vector<int> result;
+
+        stk.push(root);
+        while (!stk.empty()) {
+            Node *p = stk.top();
+            stk.pop();
+            if (p == nullptr) {
+                continue;
+            }
+            for (auto iter = p->children.rbegin(); iter != p->children.rend(); iter++) {
+                stk.push(*iter);
+            }
+            result.push_back(p->val);
+        }
+        return result;
     }
 };
 

@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <sstream>
+#include <stack>
 #include <queue>
 #include <algorithm>
 using namespace std;
@@ -33,6 +34,31 @@ public:
         result.push_back(root->val);
         vector<int> right = this->inorderTraversal(root->right);
         result.insert(result.end(), right.begin(), right.end());
+        return result;
+    }
+
+    vector<int> inorderTraversalNoRecursion(TreeNode *root) {
+        vector<int> result;
+        if (root == nullptr) {
+            return result;
+        }
+
+        stack<TreeNode *> stk;
+        stk.push(root);
+        while (!stk.empty()) {
+            auto top = stk.top();
+            if (top->left != nullptr) {
+                stk.push(top->left);
+                top->left = nullptr;
+                continue;
+            }
+            result.push_back(top->val);
+            stk.pop();
+            if (top->right != nullptr) {
+                stk.push(top->right);
+            }
+        }
+
         return result;
     }
 };
@@ -116,7 +142,7 @@ int main() {
     string line;
     while (getline(cin, line)) {
         TreeNode* root = stringToTreeNode(line);
-        
+
         vector<int> ret = Solution().inorderTraversal(root);
 
         string out = integerVectorToString(ret);
