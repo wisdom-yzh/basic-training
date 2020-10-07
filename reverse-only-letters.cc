@@ -3,6 +3,7 @@
 #include <iostream>
 #include <algorithm>
 #include <numeric>
+#include <cassert>
 using namespace std;
 
 class Solution {

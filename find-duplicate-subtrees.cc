@@ -54,3 +54,7 @@ private:
         return symbol;
     }
 };
+
+int main() {
+    return 0;
+}

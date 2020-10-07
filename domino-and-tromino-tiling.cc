@@ -12,7 +12,7 @@ public:
             return 1;
         }
 
-        vector<vector<int>> dp(n + 2, vector<int>(3))
+        vector<vector<int>> dp(n + 2, vector<int>(3));
         dp[0][0] = dp[1][0] = dp[1][1] = dp[1][2] = 1;
 
         for (int i = 0; i < n; i++) {

@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <limits>
+#include <algorithm>
 using namespace std;
 
 class Solution {

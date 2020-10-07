@@ -3,12 +3,13 @@
 #include <sstream>
 #include <algorithm>
 #include <string>
+#include <cassert>
 using namespace std;
 
 class Solution {
 public:
     bool isLongPressedName(string name, string typed) {
-        int p = 0, q = 0;
+        int q = 0;
 
         if (typed.size() < name.size()) {
             return false;
