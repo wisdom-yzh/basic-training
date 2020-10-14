@@ -10,7 +10,7 @@ public:
     int dayOfYear(string date) {
         vector<std::function<int(int)>> daysOfMonth {
             [](int x) { return 31; },
-            [](int x) { return x % 4 == 0 ? 29 : 28; },
+            [](int x) { return x % 4 == 0 && x % 100 != 0 ? 29 : 28; },
             [](int x) { return 31; },
             [](int x) { return 30; },
             [](int x) { return 31; },
