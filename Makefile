@@ -1,5 +1,5 @@
 CC=g++
-SOURCES=$(wildcard *.cc)
+SOURCES=$(notdir $(wildcard src/*.cc))
 PROGS=$(patsubst %.cc, %, $(SOURCES))
 
 all: BIN $(PROGS)
@@ -7,7 +7,7 @@ all: BIN $(PROGS)
 BIN:
 	mkdir -p bin
 
-$(PROGS): %: %.cc
+$(PROGS): %: src/%.cc
 	$(CC) $^ -std=c++11 -g -o bin/$@
 
 .PHONY: clean

@@ -16,6 +16,6 @@ clean
 make clean
 ```
 
-### reference:
+### reference
 
 https://leetcode.com/problemset/all/
