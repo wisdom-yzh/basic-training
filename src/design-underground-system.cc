@@ -12,25 +12,25 @@ public:
     UndergroundSystem() {}
 
     void checkIn(int id, string stationName, int t) {
-        checkInRecord.insert({id, { stationName, t }});
+        checkInRecord[id] = { stationName, t };
     }
 
     void checkOut(int id, string stationName, int t) {
         const auto &iter = checkInRecord.find(id);
         auto &fromStation = iter->second.first;
         auto &fromTime = iter->second.second;
-        const auto &record = schedule.find(fromStation + stationName);
+        const auto &record = schedule.find(fromStation + " " + stationName);
 
         if (record == schedule.end()) {
-            schedule.insert({ fromStation + stationName, { t - fromTime, 1 }});
+            schedule.insert({ fromStation + " " + stationName, { t - fromTime, 1 }});
         } else {
-            record->second.first += t - iter->second.second;
+            record->second.first += t - fromTime;
             record->second.second++;
         }
     }
 
     double getAverageTime(string startStation, string endStation) {
-        const auto &iter = schedule.find(startStation + endStation);
+        const auto &iter = schedule.find(startStation + " " + endStation);
         return iter->second.first / iter->second.second;
     }
 };
