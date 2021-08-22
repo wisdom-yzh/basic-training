@@ -5,3 +5,5 @@ test.dSYM
 .ycm_extra_conf.py
 .vscode
 .vimspector.json
+compile_commands.json
+.clangd
