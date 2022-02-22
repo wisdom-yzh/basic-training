@@ -7,3 +7,4 @@ test.dSYM
 .vimspector.json
 compile_commands.json
 .clangd
+.cache
