@@ -11,7 +11,7 @@ struct TreeNode {
     int val;
     TreeNode *left;
     TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
 
 class Codec {
@@ -42,11 +42,11 @@ public:
     }
 
     inline TreeNode* reconstruct(const string& buffer, int& pos, int minValue, int maxValue) {
-        if (pos >= buffer.size()) return NULL;
+        if (pos >= buffer.size()) return nullptr;
 
         int value;
         memcpy(&value, &buffer[pos], sizeof(int));
-        if (value < minValue || value > maxValue) return NULL;
+        if (value < minValue || value > maxValue) return nullptr;
 
         TreeNode* node = new TreeNode(value);
         pos += sizeof(int);

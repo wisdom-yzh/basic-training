@@ -7,7 +7,7 @@ using namespace std;
 struct ListNode {
     int val;
     ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
+    ListNode(int x) : val(x), next(nullptr) {}
 };
 
 /**
@@ -15,7 +15,7 @@ struct ListNode {
  * struct ListNode {
  *     int val;
  *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
  * };
  */
 class Solution {
@@ -56,7 +56,7 @@ public:
                 head2 = head2 -> next;
             }
         }
-        e->next = NULL;
+        e->next = nullptr;
         return d->next;
     }
 
@@ -69,7 +69,7 @@ public:
             slow = slow->next;
         }
         ListNode* headb = slow->next;     // headb is start of 2nd half of list
-        slow->next = NULL;
+        slow->next = nullptr;
         return merge(sortList(head) , sortList(headb));
     }
 };

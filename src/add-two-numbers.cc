@@ -4,7 +4,7 @@ using namespace std;
 struct ListNode {
     int val;
     ListNode *next;
-    ListNode(int x, ListNode *next = NULL) : val(x), next(next) {}
+    ListNode(int x, ListNode *next = nullptr) : val(x), next(next) {}
 };
 
 /**
@@ -12,7 +12,7 @@ struct ListNode {
  * struct ListNode {
  *     int val;
  *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
  * };
  */
 class Solution {

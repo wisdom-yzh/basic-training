@@ -7,7 +7,7 @@ using namespace std;
 struct ListNode {
     int val;
     ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
+    ListNode(int x) : val(x), next(nullptr) {}
 };
 
 /**
@@ -15,7 +15,7 @@ struct ListNode {
  * struct ListNode {
  *     int val;
  *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
  * };
  */
 class Solution {
@@ -34,7 +34,7 @@ public:
         }
         if (tail->next != nullptr) {
             p = tail->next;
-            tail->next = NULL;
+            tail->next = nullptr;
             while (p->next != nullptr) {
                 ListNode *pDel = p;
                 p = p->next;

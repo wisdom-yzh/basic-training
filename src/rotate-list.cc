@@ -11,19 +11,19 @@ using namespace std;
 struct ListNode {
     int val;
     ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
+    ListNode(int x) : val(x), next(nullptr) {}
 };
 
 class Solution {
 public:
     ListNode* rotateRight(ListNode* head, int k) {
-        if (head == NULL || head->next == NULL) {
+        if (head == nullptr || head->next == nullptr) {
             return head;
         }
 
         int length = 2;
         ListNode *tail = head->next;
-        while (tail->next != NULL) {
+        while (tail->next != nullptr) {
             tail = tail->next;
             length++;
         }
@@ -34,7 +34,7 @@ public:
             head = head->next;
             tail = tail->next;
         }
-        tail->next = NULL;
+        tail->next = nullptr;
         return head;
     }
 };
